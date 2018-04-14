@@ -162,6 +162,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FileHandler.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Helpers\Excel.cs" />
     <Compile Include="Models\Inventory.cs" />

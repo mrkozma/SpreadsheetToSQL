@@ -22,38 +22,31 @@ namespace SpreadsheetToSQL.Controllers
         [HttpPost]
         public ActionResult Index( HttpPostedFileBase file )
         {
-            ViewBag.Message = Path.GetFileName(file.FileName);
-            
             try
             {
-                //UPLOAD FILE:
-                //string fileName = file.FileName;//msdn doc says that this returns the name with the directory path, but I only got the file name. why?
-                string fileName = Path.GetFileName(file.FileName); //in any case I will use the Path.GetFileName which supposed to return ONLY the file name
-                string uploadDir = @"~\App_Data\uploads\";
+                //UPLOAD FILE and GET THE PATH:
+                string filePathOnServer = FileHandler.Upload(file);
 
-                string uploadPath = Path.Combine(Server.MapPath(uploadDir), fileName);
+                //TODO: enable manual associatiation of columns to properties and 
+                //TODO: implement interactive isHeader
 
-                file.SaveAs(uploadPath);
-                ViewBag.Message = $"The {fileName} file was successfully uploaded.";
+                //EXTRACT DATA FROM FILE and ADD TO DB:
+                Excel.ExtractCarData(filePathOnServer, isHeader: true); 
 
-                //TODO: enable manually associatiation of columns to properties and 
-
-                //EXTRACT DATA FROM FILE:
-                FileInfo filePath = new FileInfo(uploadPath);   
-                Excel.ExtraxtCarData(filePath, isHeader: true); //Now it only works with Car Type //TODO: implement interactive isHeader
-
+                //GET LIST FROM DB:
                 List<Car> dbCars = db.Cars.ToList();
 
-                //RETURN TO VIEW: 
+                //SEND LIST TO VIEW: 
+                ViewBag.Message = $"{Path.GetFileName(file.FileName)} file has been successfully processed.";
                 return View("Index", dbCars);
 
             }
             catch (Exception ex)
             {
                 ViewBag.Message = ex.Message;
+                return View();
             }
 
-            return View();
         }
 
     }

@@ -11,10 +11,11 @@ namespace SpreadsheetToSQL.Helpers
 {
     public static class Excel
     {
-        
-        public static List<Car> ExtraxtCarData(FileInfo filePath, bool isHeader)
+
+        public static List<Car> ExtractCarData(string uploadPath, bool isHeader)
         {
-            
+            FileInfo filePath = new FileInfo(uploadPath);
+
             //Implement check whether the table data is in the right format and order (LotNumber, Make, Model, Year)
 
             try

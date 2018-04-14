@@ -10,6 +10,7 @@ namespace SpreadsheetToSQL.Models
     public class Car
     {
         [Key]
+        [Display(Name = "Car Id")]
         public Guid CarId { get; set; }
 
         [Display(Name = "Lot Number")]
