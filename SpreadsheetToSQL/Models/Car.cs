@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -9,7 +10,7 @@ namespace SpreadsheetToSQL.Models
     public class Car
     {
         [Key]
-        public int CarId { get; set; }
+        public Guid CarId { get; set; }
 
         [Display(Name = "Lot Number")]
         public int LotNumber { get; set; }
@@ -22,5 +23,10 @@ namespace SpreadsheetToSQL.Models
         public int Year { get; set; }
 
         public string Color { get; set; }
+    }
+
+    public class InventoryContext : DbContext
+    {
+        public DbSet<Car> Cars{ get; set; }
     }
 }

@@ -74,3 +74,7 @@ D:\CodeRepo\devu\SpreadsheetToSQL\SpreadsheetToSQL\bin\EPPlus.DataExtractor.dll
 D:\CodeRepo\devu\SpreadsheetToSQL\SpreadsheetToSQL\bin\EPPlus.dll
 D:\CodeRepo\devu\SpreadsheetToSQL\SpreadsheetToSQL\bin\EPPlus.xml
 D:\CodeRepo\devu\SpreadsheetToSQL\SpreadsheetToSQL\bin\EPPlus.DataExtractor.xml
+D:\CodeRepo\devu\SpreadsheetToSQL\SpreadsheetToSQL\bin\EntityFramework.dll
+D:\CodeRepo\devu\SpreadsheetToSQL\SpreadsheetToSQL\bin\EntityFramework.SqlServer.dll
+D:\CodeRepo\devu\SpreadsheetToSQL\SpreadsheetToSQL\bin\EntityFramework.xml
+D:\CodeRepo\devu\SpreadsheetToSQL\SpreadsheetToSQL\bin\EntityFramework.SqlServer.xml

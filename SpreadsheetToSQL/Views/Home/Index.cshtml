@@ -34,6 +34,7 @@
 
     <table class="table table-bordered">
         <tr>
+@*            <th>@Html.DisplayNameFor(m => m.First().CarId)</th>*@
             <th>@Html.DisplayNameFor(m => m.First().LotNumber)</th>
             <th>@Html.DisplayNameFor(m => m.First().Make)</th>
             <th>@Html.DisplayNameFor(m => m.First().Model)</th>
@@ -43,6 +44,7 @@
             @foreach (var car in Model)
             {
         <tr>
+            @*<td>@car.CarId</td>*@
             <td>@car.LotNumber</td>
             <td>@car.Make</td>
             <td>@car.Model</td>
