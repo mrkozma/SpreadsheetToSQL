@@ -1,0 +1,3 @@
+﻿* if OK button is clicked without a filechosen it throws an exception
+* Only spreadsheet with worksheet named 'Sheet1' is accepted
+* be able to associate columns with properties manually

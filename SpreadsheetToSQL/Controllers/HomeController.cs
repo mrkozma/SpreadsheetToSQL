@@ -11,7 +11,7 @@ namespace SpreadsheetToSQL.Controllers
 {
     public class HomeController : Controller
     {
-        //InventoryContext db = new InventoryContext();
+        InventoryContext db = new InventoryContext();
 
         // GET: Home
         public ActionResult Index()
@@ -40,12 +40,12 @@ namespace SpreadsheetToSQL.Controllers
 
                 //EXTRACT DATA FROM FILE:
                 FileInfo filePath = new FileInfo(uploadPath);   
-                List<Car> cars = Excel.ExtraxtCarData(filePath, isHeader: true); //Now it only works with Car Type //TODO: implement interactive isHeader
+                Excel.ExtraxtCarData(filePath, isHeader: true); //Now it only works with Car Type //TODO: implement interactive isHeader
 
-                //List<Car> dbCars = db.Cars.ToList();
-                
+                List<Car> dbCars = db.Cars.ToList();
+
                 //RETURN TO VIEW: 
-                return View("Index", cars);
+                return View("Index", dbCars);
 
             }
             catch (Exception ex)
